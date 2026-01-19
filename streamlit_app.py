@@ -76,7 +76,7 @@ with st.sidebar:
     # 2. Add Tasks
     st.subheader("➕ Add Activity")
     new_name = st.text_input("Task Name")
-    new_type = st.selectbox("Type", ["Standard", "Gym", "Reach Out"])
+    new_type = st.selectbox("Type", ["Standard", "Workout", "Reach Out"])
     new_time = st.time_input("Start Time")
     
     if st.button("✅ Add to Schedule"):
@@ -122,7 +122,7 @@ for i, task in enumerate(st.session_state.schedule):
                     st.info(f"📞 {c_info['Phone']} | ✉️ {c_info.get('Email', 'N/A')}")
                 task['log'] = st.text_input("Interaction Notes:", value=task['log'], key=f"log_{i}")
             
-            elif task['type'] == "Gym":
+            elif task['type'] == "Workout":
                 task['log'] = st.text_area("Workout Tracking (Sets/Reps):", value=task['log'], key=f"log_{i}")
             
             else:
